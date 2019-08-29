@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.json",
+    "typedocOptions": {
+        "excludeExternals": true,
+        "excludeNotExported": true,
+        "excludePrivate": true,
+        "excludeProtected": true,
+        "includeDeclarations": false,
+        "gitRevision": "master",
+        "mode": "file",
+        "name": "System Core Library",
+        "plugin": "none",
+        "theme": "node_modules/typescriptlibs.typedoc.theme"
+    }
+}
