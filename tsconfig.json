@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "experimentalDecorators": true,
+        "noEmitOnError": true,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "strict": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "lib",
+        "rootDir": "sources",
+        "target": "es5"
+    },
+    "exclude": [
+        "client",
+        "lib",
+        "node_modules"
+    ],
+    "include": [
+        "sources/**/*.ts"
+    ]
+}
