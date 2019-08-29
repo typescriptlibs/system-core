@@ -1,0 +1,55 @@
+{
+    "private": true,
+    "name": "@tsl/system-core",
+    "version": "0.0.1",
+    "author": "TypeScriptLibs and Contributors",
+    "license": "MIT",
+    "description": "System Core Library - contains runtime, reflection, and primitives",
+    "keywords": [
+        "core",
+        "primitives",
+        "reflection",
+        "runtime",
+        "System",
+        "System.Runtime",
+        "TypeScript"
+    ],
+    "bugs": "https://github.com/typescriptlibs/system-core/issues",
+    "homepage": "https://github.com/typescriptlibs/system-core#readme",
+    "repository": "https://github.com/typescriptlibs/system-core.git",
+    "devDependencies": {
+        "@types/node": "^12.7.2",
+        "bestjs": "^1.0.6",
+        "husky": "^3.0.4",
+        "requirejs": "^2.3.6",
+        "typedoc": "^0.15.0",
+        "typescript": "^3.6.2",
+        "typescriptlibs.typedoc.theme": "https://github.com/typescriptlibs/typescriptlibs.typedoc.theme.git"
+    },
+    "engines": {
+        "node": ">=10.15.2"
+    },
+    "files": [
+        "client",
+        "lib",
+        "CHANGELOG",
+        "LICENSE",
+        "README.md"
+    ],
+    "scripts": {
+        "docs": "typedoc --out docs --tsconfig tsconfig-docs.json",
+        "build": "npm run clean && npm run compile && npm run pack",
+        "clean": "rm -rf client docs lib",
+        "compile": "tsc --build tsconfig.json tsconfig-client.json",
+        "final": "npm publish --access=public",
+        "next": "npm publish --access=public --tag next",
+        "pack": "r_js -o rjsconfig-client.js",
+        "tests": "tsc --build tsconfig-tests.json",
+        "watch": "npm run clean && npm run compile -- --watch"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run tests"
+        }
+    }
+}
