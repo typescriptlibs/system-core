@@ -17,7 +17,8 @@
 ////
 
 import Environment from './Environment';
-import SystemCoreDecorator from '../../package';
+import IDisposable from '../IDisposable';
+import Object from '../Object';
 
 ////
 //
@@ -28,33 +29,83 @@ import SystemCoreDecorator from '../../package';
 /**
  * Provides special functions for the runtime session.
  */
-@SystemCoreDecorator.$( 'Runtime' )
-export abstract class RuntimeUtility
+export module RuntimeUtility
 {
     ////
     //
-    //  Static Properties
+    //  Constants
     //
     ////
 
-    private static generatedStringHashCodeSalt: number = ( 1 + ( Math.random() * ( Environment.maxSafeInteger - 1 ) ) );
-
-    private static generatedUniqueHashCodeCounter: number = Environment.minSafeInteger;
+    const _generatedStringHashCodeSalt: number = ( 1 + ( Math.random() * ( Environment.maxSafeInteger - 1 ) ) );
 
     ////
     //
-    //  Static Functions
+    //  Variables
     //
     ////
+
+    let _disposableRegister: Record<number, IDisposable> = {};
+
+    let _generatedUniqueHashCodeCounter: number = Environment.minSafeInteger;
+
+    ////
+    //
+    //  Functions
+    //
+    ////
+
+    /**
+     * Dispose registered disposable objects.
+     */
+    function dispose (): void
+    {
+        Object
+            .values( _disposableRegister )
+            .forEach(
+                function ( object: IDisposable ): void
+                {
+                    if ( object.isDisposed === false )
+                    {
+                        object.dispose();
+                    }
+                }
+            );
+    }
+
+    /**
+     * Terminates the current runtime session and returns an exit code to the
+     * runtime engine.
+     *
+     * @param exitCode
+     * Exit code for the runtime engine.
+     */
+    export function exit ( exitCode: number = 0 )
+    {
+        if ( Environment.isServer )
+        {
+            dispose();
+            Environment.globalNamespace.process.exit( exitCode );
+        }
+        else if ( Environment.isClient || Environment.isWorker )
+        {
+            dispose();
+            Environment.globalNamespace.close();
+        }
+        else
+        {
+            throw new Error( 'The caller does not have sufficient security permission to perform a process exit.' );
+        }
+    }
 
     /**
      * Returns a generated unique code for a string. This code is only unique
      * during the current runtime session.
      *
      * @param str
-     * The string to generate the unique code of.
+     * String to generate the unique code of.
      */
-    public static generateStringHashCode ( str: string ): number
+    export function generateStringHashCode ( str: string ): number
     {
         let hash1 = 5381;
         let hash2 = hash1;
@@ -72,7 +123,7 @@ export abstract class RuntimeUtility
             hash1 = ( ( hash1 << 5 ) + hash1 + ( hash1 >> 27 ) ) ^ str.charCodeAt( len - 1 );
         }
 
-        hash1 ^= RuntimeUtility.generatedStringHashCodeSalt;
+        hash1 ^= _generatedStringHashCodeSalt;
 
         return ( hash1 + ( hash2 * 1566083941 ) );
     }
@@ -81,9 +132,21 @@ export abstract class RuntimeUtility
      * Returns a generated unique code for an object instances. This code is
      * only unique during the current runtime session.
      */
-    public static generateUniqueHashCode (): number
+    export function generateUniqueHashCode (): number
     {
-        return ++RuntimeUtility.generatedUniqueHashCodeCounter;
+        return ++_generatedUniqueHashCodeCounter;
+    }
+
+    /**
+     * Registers a disposable object for handling of unmanaged data on runtime
+     * termination.
+     *
+     * @param object
+     * Disposable object to handle.
+     */
+    export function registerDisposable ( object: IDisposable ): void
+    {
+        _disposableRegister[object.getHashCode()] = object;
     }
 }
 
