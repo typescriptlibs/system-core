@@ -12,14 +12,6 @@
 
 ////
 //
-//  Imports
-//
-////
-
-import SystemCoreDecorator from '../../package';
-
-////
-//
 //  Classes
 //
 ////
@@ -27,95 +19,85 @@ import SystemCoreDecorator from '../../package';
 /**
  * Provides information and functions for the current runtime session.
  */
-@SystemCoreDecorator.$( 'Runtime' )
-export abstract class Environment
+export module Environment
 {
     ////
     //
-    //  Static Properties
+    //  Constants
     //
     ////
+
+    /**
+     * Return the bigint class of the runtime engine.
+     */
+    export const esBigInt: typeof BigInt = BigInt;
+
+    /**
+     * Return the boolean class of the runtime engine.
+     */
+    export const esBoolean: typeof Boolean = Boolean;
+
+    /**
+     * Return the number class of the runtime engine.
+     */
+    export const esNumber: typeof Number = Number;
 
     /**
      * Returns the object class of the runtime engine.
      */
-    public static readonly esObject: typeof Object = Object;
+    export const esObject: typeof Object = Object;
 
     /**
      * Return the string class of the runtime engine.
      */
-    public static readonly esString: typeof String = String;
+    export const esString: typeof String = String;
+
+    /**
+     * Return the symbol class of the runtime engine.
+     */
+    export const esSymbol: typeof Symbol = Symbol;
 
     /**
      * Returns the global namespace.
      */
-    public static readonly global: typeof globalThis = ( globalThis || window || self || global );
+    export const globalNamespace: typeof globalThis = ( globalThis || window || self || global );
 
     /**
      * Returns true, if the runtime engine is of client type.
      */
-    public static readonly isClient: boolean = ( window instanceof Window );
+    export const isClient: boolean = ( window instanceof Window );
 
     /**
      * Returns true, if the runtime engine is of server type.
      */
-    public static readonly isServer: boolean = ( global instanceof Object );
+    export const isServer: boolean = ( global instanceof Object );
 
     /**
      * Returns true, if the runtime engine is of worker type.
      */
-    public static readonly isWorker: boolean = ( self instanceof Worker );
+    export const isWorker: boolean = ( self instanceof Worker );
 
     /**
      * Returns the largest integer float number that can be used without
      * precision problems in every runtime engine.
      */
-    public static readonly maxSafeInteger: number = 0x1FFFFFFFFFFFFF;
+    export const maxSafeInteger: number = 0x1FFFFFFFFFFFFF;
 
     /**
      * Returns the lowest integer float number that can be used without
      * precision problems in every runtime engine.
      */
-    public static readonly minSafeInteger: number = -0x1FFFFFFFFFFFFF;
+    export const minSafeInteger: number = -0x1FFFFFFFFFFFFF;
 
     /**
      * Returns the newline string for this environment.
      */
-    public static readonly newLine: string = '\n';
+    export const newLine: string = '\n';
 
     /**
      * Returns an array of possible newline strings.
      */
-    public static readonly newLineAll: string[] = ['\n', '\r', '\r\n'];
-
-    ////
-    //
-    //  Static Functions
-    //
-    ////
-
-    /**
-     * Terminates the current process and returns an exit code to the runtime
-     * engine.
-     *
-     * @param exitCode
-     * The exit code for the runtime engine.
-     */
-    public static exit ( exitCode: number = 0 )
-    {
-        if ( Environment.isServer )
-        {
-            Environment.global.process.exit( exitCode );
-        }
-        else if ( Environment.isClient || Environment.isWorker )
-        {
-            Environment.global.close();
-        }
-        else
-        {
-            throw new Error( 'The caller does not have sufficient security permission to perform a process exit.' );
-        }
-    }
+    export const newLineAll: string[] = ['\n', '\r', '\r\n'];
 }
 
 ////
