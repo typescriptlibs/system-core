@@ -139,7 +139,8 @@ export module RuntimeUtility
 
     /**
      * Registers a disposable object for handling of unmanaged data on runtime
-     * termination.
+     * termination. There is no guarantee that the dispose function gets called,
+     * because a runtime engine can be forced to terminate immediately.
      *
      * @param object
      * Disposable object to handle.
