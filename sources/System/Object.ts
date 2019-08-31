@@ -28,10 +28,11 @@ import Type from './Type';
 //
 ////
 
+@SystemCoreDecorator
+
 /**
  * The base class for all other classes.
  */
-@SystemCoreDecorator
 export class Object extends Environment.esObject
 {
     ////
