@@ -42,8 +42,8 @@ export interface NamespaceClassDecorator extends ClassDecorator
  *
  * @example
  * ```ts
- *   @Namespace('System').$('Runtime')
- *   export class Environment
+ *   @Namespace('System').$('Reflection')
+ *   export class MemberInfo
  *   {
  *     // => namespace: 'System.Runtime'
  *   }
