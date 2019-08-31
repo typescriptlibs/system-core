@@ -50,8 +50,8 @@ export interface PackageClassDecorator extends ClassDecorator
  *
  * @example
  * ```ts
- *     @Package('@tsl', 'system-core').$('System').$('Runtime')
- *     export class Environment
+ *     @Package('@tsl', 'system-core').$('System').$('Reflection')
+ *     export class MemberInfo
  *     {
  *         // => package: '@tsl/system-core'
  *         // => namespace: 'System.Runtime'
