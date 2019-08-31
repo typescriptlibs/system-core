@@ -10,7 +10,7 @@
         "moduleResolution": "node",
         "outDir": "lib",
         "rootDir": "sources",
-        "target": "es5"
+        "target": "es2015"
     },
     "exclude": [
         "client",
