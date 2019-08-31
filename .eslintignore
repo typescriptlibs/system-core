@@ -1,4 +1,2 @@
-client
-docs
-lib
-rjsconfig-client.js
+**/*.*
+!sources/**/*.ts
