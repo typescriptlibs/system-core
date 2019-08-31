@@ -1,5 +1,63 @@
 {
     "extends": [
         "./node_modules/bestjs/.eslintrc.json"
-    ]
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "sourceType": "module",
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "lines-around-comment": [
+            "error",
+            {
+                "afterBlockComment": true,
+                "afterLineComment": false,
+                "allowArrayEnd": true,
+                "allowArrayStart": true,
+                "allowBlockEnd": true,
+                "allowBlockStart": true,
+                "allowClassEnd": true,
+                "allowClassStart": true,
+                "allowObjectEnd": true,
+                "allowObjectStart": true,
+                "beforeBlockComment": true,
+                "beforeLineComment": false,
+                "ignorePattern": "^(?:\\*|\\/\\/?)\\n"
+            }
+        ],
+        "no-shadow": "off",
+        "no-undef": "off",
+        "no-unused-vars": "off",
+        "spaced-comment": [
+            "error",
+            "always",
+            {
+                "block": {
+                    "exceptions": [
+                        "*",
+                        "!",
+                        "!*",
+                    ],
+                    "markers": [
+                        "*",
+                        "!",
+                        "!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*\\"
+                    ]
+                },
+                "line": {
+                    "exceptions": [
+                        "/"
+                    ],
+                    "markers": [
+                        "/"
+                    ]
+                }
+            }
+        ],
+        "valid-jsdoc": "off"
+    }
 }
