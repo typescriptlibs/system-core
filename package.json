@@ -19,6 +19,8 @@
     "repository": "https://github.com/typescriptlibs/system-core.git",
     "devDependencies": {
         "@types/node": "^12.7.2",
+        "@typescript-eslint/eslint-plugin": "^2.0.0",
+        "@typescript-eslint/parser": "^2.0.0",
         "bestjs": "^1.0.6",
         "husky": "^3.0.4",
         "requirejs": "^2.3.6",
@@ -42,6 +44,7 @@
         "clean": "rm -rf client docs lib",
         "compile": "tsc --build tsconfig.json tsconfig-client.json",
         "final": "npm publish --access=public",
+        "lint": "eslint sources/**/*.ts",
         "next": "npm publish --access=public --tag next",
         "pack": "r_js -o rjsconfig-client.js",
         "tests": "tsc --build tsconfig-tests.json",
