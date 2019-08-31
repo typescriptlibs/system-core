@@ -28,17 +28,18 @@ import SystemCoreDecorator from '../package';
 //
 ////
 
+@SystemCoreDecorator
+
 /**
  * The type class of an object provides information for further reflection.
  */
-@SystemCoreDecorator
 export class Type extends Object
 {
-    //////
+    ////
     //
     //  Static Functions
     //
-    //////
+    ////
 
     /**
      * Returns the class type of the given instance.
@@ -70,8 +71,9 @@ export class Type extends Object
         this._constructor = obj.constructor;
         this._name = obj.constructor.name;
         this._namespace = ( obj.constructor as NamespaceClassConstructor )['[[__namespace__]]'];
+        this._package = ( obj.constructor as PackageClassConstructor )['[[__package__]]'];
+
         // @todo this._numberOfArguments = obj.constructor.length;
-        this._package = ( obj.constructor as PackageClassConstructor )['[[__package__]]']
     }
 
     ////
@@ -148,12 +150,11 @@ export class Type extends Object
     ////
 
     /**
-     * Compares this object type with another object type.
+     * Compares this object type with another object type. Returns true, if the
+     * objects are equal, otherwise false.
      *
      * @param other
      * The other object or type to compare with.
-     *
-     * Returns true, if the objects are equal, otherwise false.
      */
     public equals ( other: Type ): boolean
     {
