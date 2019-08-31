@@ -30,11 +30,11 @@ import Object from './Object';
  */
 export interface IDisposable extends Object
 {
-    //////
+    ////
     //
     //  Properties
     //
-    //////
+    ////
 
     /**
      * Returns true, if the dispose function has been called.
