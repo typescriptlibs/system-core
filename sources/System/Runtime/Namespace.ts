@@ -16,7 +16,7 @@
 //
 ////
 
-export interface NamespaceClassConstructor extends Function
+export interface INamespaceClassConstructor extends Function
 {
     /**
      * Returns the namespace of the class. Class namespaces are read-only
@@ -25,9 +25,9 @@ export interface NamespaceClassConstructor extends Function
     readonly '[[__namespace__]]'?: string;
 }
 
-export interface NamespaceClassDecorator extends ClassDecorator
+export interface INamespaceClassDecorator extends ClassDecorator
 {
-    $ ( ...additionalNamespace: Array<string> ): NamespaceClassDecorator;
+    $ ( ...additionalNamespace: Array<string> ): INamespaceClassDecorator;
 }
 
 ////
@@ -53,11 +53,11 @@ export interface NamespaceClassDecorator extends ClassDecorator
  * One or more namespaces of the class. All namespaces will be separated with a
  * point (`.`) character.
  */
-export function Namespace ( ...namespace: Array<string> ): NamespaceClassDecorator
+export function Namespace ( ...namespace: Array<string> ): INamespaceClassDecorator
 {
-    const decorator = function <T extends NamespaceClassConstructor> ( target: T ): T
+    const decorator = function <T extends INamespaceClassConstructor> ( target: T ): T
     {
-        if ( target['[[__namespace__]]'] )
+        if ( Object.hasOwnProperty.call( target, '[[__namespace__]]' ) === true )
         {
             throw new Error( 'Target has already a namespace!' );
         }
@@ -70,13 +70,13 @@ export function Namespace ( ...namespace: Array<string> ): NamespaceClassDecorat
         } );
 
         return target;
-    } as unknown as NamespaceClassDecorator;
+    } as unknown as INamespaceClassDecorator;
 
     Object.defineProperty( decorator, '$', {
         configurable: false,
         enumerable: true,
         writable: false,
-        value: function ( ...additionalNamespace: Array<string> ): NamespaceClassDecorator
+        value: function ( ...additionalNamespace: Array<string> ): INamespaceClassDecorator
         {
             return Namespace( ...namespace, ...additionalNamespace );
         }
