@@ -18,7 +18,6 @@
 
 import Environment from './Environment';
 import IDisposable from '../IDisposable';
-import Object from '../Object';
 
 ////
 //
@@ -37,7 +36,7 @@ export module RuntimeUtility
     //
     ////
 
-    const _disposableCleanUpThreshold = 1000;
+    const _disposableCleanUpThreshold = 100;
 
     const _generatedStringHashCodeSalt: number = ( 1 + ( Math.random() * ( Environment.maxSafeInteger - 1 ) ) );
 
@@ -56,8 +55,6 @@ export module RuntimeUtility
     ////
 
     let _disposableCleanUpCountdown: number = _disposableCleanUpThreshold;
-
-    let _disposableCleanUpInterval: number;
 
     let _disposableRegistry: Record<string, IDisposable> = {};
 
@@ -92,8 +89,6 @@ export module RuntimeUtility
      */
     function dispose (): void
     {
-        window.clearInterval( _disposableCleanUpInterval );
-
         Object
             .values( _disposableRegistry )
             .forEach(
@@ -129,8 +124,8 @@ export module RuntimeUtility
     }
 
     /**
-     * Returns a generated unique code for a string. This code is only unique
-     * during the current runtime session.
+     * Generates and returns a unique code for a string. This code is only
+     * unique during the current runtime session.
      *
      * @param str
      * String to generate the unique code of.
@@ -159,7 +154,7 @@ export module RuntimeUtility
     }
 
     /**
-     * Returns a generated unique code for an object instances. This code is
+     * Generates and returns a unique code for an object instances. This code is
      * only unique during the current runtime session.
      */
     export function generateUniqueHashCode (): number
@@ -172,8 +167,6 @@ export module RuntimeUtility
      */
     function initialize (): void
     {
-        _disposableCleanUpInterval = window.setInterval( cleanUpDisposables, 60000 );
-
         if ( Environment.isServer )
         {
             initializeServer();
@@ -190,14 +183,6 @@ export module RuntimeUtility
     function initializeClient (): void
     {
         Environment.globalNamespace.addEventListener( 'beforeunload', dispose );
-    }
-
-    /**
-     * Initialize dispose management.
-     */
-    function initializeDispose (): void
-    {
-
     }
 
     /**
