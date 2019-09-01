@@ -23,59 +23,55 @@ export module Environment
 {
     ////
     //
+    //  Types
+    //
+    ////
+
+    /**
+     * Declares the most basic types.
+     */
+    export type BasicType = ( object | Function | PrimitiveType );
+
+    /**
+     * Declares a constructor with an index.
+     */
+    export type ConstructorType = ( Function & Record<string, unknown> );
+
+    /**
+     * Declares the primitive value types. These value types get converted by
+     * the runtime engine to a full basic type, if necessary.
+     */
+    export type PrimitiveType = ( bigint | boolean | number | string | symbol );
+
+    ////
+    //
     //  Constants
     //
     ////
 
     /**
-     * Return the bigint class of the runtime engine.
-     */
-    export const esBigInt: typeof BigInt = BigInt;
-
-    /**
-     * Return the boolean class of the runtime engine.
-     */
-    export const esBoolean: typeof Boolean = Boolean;
-
-    /**
-     * Return the number class of the runtime engine.
-     */
-    export const esNumber: typeof Number = Number;
-
-    /**
-     * Returns the object class of the runtime engine.
-     */
-    export const esObject: typeof Object = Object;
-
-    /**
-     * Return the string class of the runtime engine.
-     */
-    export const esString: typeof String = String;
-
-    /**
-     * Return the symbol class of the runtime engine.
-     */
-    export const esSymbol: typeof Symbol = Symbol;
-
-    /**
      * Returns the global namespace.
      */
-    export const globalNamespace: typeof globalThis = ( globalThis || window || self || global );
+    export const globalNamespace: typeof globalThis = (
+        typeof globalThis !== 'undefined' ? globalThis :
+            typeof self !== 'undefined' ? self :
+                global
+    ) as unknown as typeof globalThis;
 
     /**
      * Returns true, if the runtime engine is of client type.
      */
-    export const isClient: boolean = ( window instanceof Window );
-
-    /**
-     * Returns true, if the runtime engine is of server type.
-     */
-    export const isServer: boolean = ( global instanceof Object );
+    export const isClient: boolean = ( typeof self !== 'undefined' && self instanceof Window );
 
     /**
      * Returns true, if the runtime engine is of worker type.
      */
-    export const isWorker: boolean = ( self instanceof Worker );
+    export const isWorker: boolean = ( typeof self !== 'undefined' && self instanceof Worker );
+
+    /**
+     * Returns true, if the runtime engine is of server type.
+     */
+    export const isServer: boolean = ( !isClient && !isWorker );
 
     /**
      * Returns the largest integer float number that can be used without
@@ -97,7 +93,7 @@ export module Environment
     /**
      * Returns an array of possible newline strings.
      */
-    export const newLineAll: string[] = ['\n', '\r', '\r\n'];
+    export const newLineAll: string[] = ['\r\n', '\n', '\r'];
 }
 
 ////
