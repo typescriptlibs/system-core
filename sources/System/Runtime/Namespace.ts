@@ -27,7 +27,7 @@ export interface INamespaceClassConstructor extends Function
 
 export interface INamespaceClassDecorator extends ClassDecorator
 {
-    $ ( ...additionalNamespace: Array<string> ): INamespaceClassDecorator;
+    $ ( ...additionalNamespaces: Array<string> ): INamespaceClassDecorator;
 }
 
 ////
@@ -49,11 +49,11 @@ export interface INamespaceClassDecorator extends ClassDecorator
  *   }
  * ```
  *
- * @param namespace
+ * @param namespaces
  * One or more namespaces of the class. All namespaces will be separated with a
  * point (`.`) character.
  */
-export function Namespace ( ...namespace: Array<string> ): INamespaceClassDecorator
+export function Namespace ( ...namespaces: Array<string> ): INamespaceClassDecorator
 {
     const decorator = function <T extends INamespaceClassConstructor> ( target: T ): T
     {
@@ -66,7 +66,7 @@ export function Namespace ( ...namespace: Array<string> ): INamespaceClassDecora
             configurable: false,
             enumerable: false,
             writable: false,
-            value: namespace.join( '.' )
+            value: namespaces.join( '.' )
         } );
 
         return target;
@@ -76,9 +76,9 @@ export function Namespace ( ...namespace: Array<string> ): INamespaceClassDecora
         configurable: false,
         enumerable: true,
         writable: false,
-        value: function ( ...additionalNamespace: Array<string> ): INamespaceClassDecorator
+        value: function ( ...additionalNamespaces: Array<string> ): INamespaceClassDecorator
         {
-            return Namespace( ...namespace, ...additionalNamespace );
+            return Namespace( ...namespaces, ...additionalNamespaces );
         }
     } );
 
