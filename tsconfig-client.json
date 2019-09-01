@@ -1,7 +1,7 @@
 {
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"module": "amd",
-		"outDir": "client",
-	}
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "amd",
+        "outDir": "client"
+    }
 }
