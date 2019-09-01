@@ -17,7 +17,7 @@
 ////
 
 import Enum from '../Enum';
-import SystemCoreDecorator from '../../package';
+import PackageClassDecorator from '../../package';
 
 ////
 //
@@ -25,7 +25,7 @@ import SystemCoreDecorator from '../../package';
 //
 ////
 
-@SystemCoreDecorator
+@PackageClassDecorator
 export class MemberTypes extends Enum<number>
 {
     ////
