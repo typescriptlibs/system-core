@@ -32,6 +32,12 @@ import SystemClassDecorator from '../package';
 @SystemClassDecorator
 export abstract class ValueType<T extends Environment.PrimitiveType> extends Object
 {
+    ////
+    //
+    //  Functions
+    //
+    ////
+
     /**
      * Returns true, if the object value is equal to the other object value.
      *
