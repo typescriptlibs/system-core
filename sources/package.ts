@@ -16,7 +16,7 @@
 //
 ////
 
-import Package from './System/Runtime/Package';
+import { Package, IPackageClassDecorator } from './System/Runtime/Package';
 
 ////
 //
@@ -27,18 +27,18 @@ import Package from './System/Runtime/Package';
 /**
  * Package name
  */
-export const __package: string = '@tsl/system-core';
+export const PACKAGE: string = '@tsl/system-core';
 
 /**
  * Package namespace
  */
-export const __namespace: string = 'System';
+export const NAMESPACE: string = 'System';
 
 /**
  * Package class decorator
  * @internal
  */
-export const SystemCoreDecorator = Package( __package ).$( __namespace );
+export const SystemCoreDecorator: IPackageClassDecorator = Package( PACKAGE ).$( NAMESPACE );
 
 ////
 //
