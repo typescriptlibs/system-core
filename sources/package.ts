@@ -25,20 +25,20 @@ import { Package, IPackageClassDecorator } from './System/Runtime/Package';
 ////
 
 /**
- * Package name
+ * Returns the package name.
  */
-export const PACKAGE: string = '@tsl/system-core';
+export const PackageName: string = '@tsl/system-core';
 
 /**
- * Package namespace
+ * Returns the package namespace.
  */
-export const NAMESPACE: string = 'System';
+export const PackageNamespace: string = 'System';
 
 /**
- * Package class decorator
- * @internal
+ * Returns the internal class decorator of the package.
+ * @private
  */
-export const SystemCoreDecorator: IPackageClassDecorator = Package( PACKAGE ).$( NAMESPACE );
+export const PackageClassDecorator: IPackageClassDecorator = Package( PackageName ).$( PackageNamespace );
 
 ////
 //
@@ -46,4 +46,4 @@ export const SystemCoreDecorator: IPackageClassDecorator = Package( PACKAGE ).$(
 //
 ////
 
-export default SystemCoreDecorator;
+export default PackageClassDecorator;
