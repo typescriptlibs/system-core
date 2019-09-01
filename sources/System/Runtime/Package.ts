@@ -16,7 +16,7 @@
 //
 ////
 
-import Namespace from './Namespace';
+import { Namespace, INamespaceClassDecorator } from './Namespace';
 
 ////
 //
@@ -24,7 +24,7 @@ import Namespace from './Namespace';
 //
 ////
 
-export interface PackageClassConstructor extends Function
+export interface IPackageClassConstructor extends Function
 {
     /**
      * Returns the package of the class. Class packkages are read-only and can
@@ -33,7 +33,7 @@ export interface PackageClassConstructor extends Function
     readonly '[[__package__]]'?: string;
 }
 
-export interface PackageClassDecorator extends ClassDecorator
+export interface IPackageClassDecorator extends ClassDecorator
 {
     $: typeof Namespace;
 }
@@ -62,11 +62,13 @@ export interface PackageClassDecorator extends ClassDecorator
  * One or more packages of the class. All packages will be separated with a
  * slash (`/`) character.
  */
-export function Package ( ...packages: Array<string> ): PackageClassDecorator
+export function Package ( ...packages: Array<string> ): IPackageClassDecorator
 {
-    const decorator = function <T extends PackageClassConstructor> ( target: T ): T
+    let namespaceDecorator: INamespaceClassDecorator;
+
+    const decorator = function <T extends IPackageClassConstructor> ( target: T ): T
     {
-        if ( target['[[__package__]]'] )
+        if ( Object.hasOwnProperty.call( target, '[[__package__]]' ) === true )
         {
             throw new Error( 'Target has already a package!' );
         }
@@ -78,14 +80,24 @@ export function Package ( ...packages: Array<string> ): PackageClassDecorator
             value: packages.join( '/' )
         } );
 
+        if ( typeof namespaceDecorator !== 'undefined' )
+        {
+            namespaceDecorator( target );
+        }
+
         return target;
-    } as unknown as PackageClassDecorator;
+    } as unknown as IPackageClassDecorator;
 
     Object.defineProperty( decorator, '$', {
         configurable: false,
         enumerable: true,
         writable: false,
-        value: Namespace
+        value: function ( ...additionalNamespaces: Array<string> ): IPackageClassDecorator
+        {
+            namespaceDecorator = Namespace( ...additionalNamespaces );
+
+            return decorator;
+        }
     } );
 
     return decorator;
