@@ -18,7 +18,7 @@
 
 import Environment from './Runtime/Environment';
 import IComparable from './IComparable';
-import SystemCoreDecorator from '../package';
+import PackageClassDecorator from '../package';
 import Type from './Type';
 import ValueType from './ValueType';
 
@@ -39,8 +39,18 @@ type EnumRecord = Record<string, EnumPairRecord>;
 
 /**
  * This is the abstract base class for enums.
+ *
+ * ```ts
+ * import { Enum } from `@tsl/system-core`;
+ * class MyEnum extends Enum<boolean>
+ * {
+ *     public static readonly No = new MyEnum(false);
+ *     public static readonly Yes = new MyEnum(true);
+ * }
+ * const myFlag: MyEnum = MyEnum.No;
+ * ```
  */
-@SystemCoreDecorator
+@PackageClassDecorator
 export abstract class Enum<T extends Environment.PrimitiveType>
     extends ValueType<T>
     implements IComparable<Enum<T>>
@@ -82,7 +92,7 @@ export abstract class Enum<T extends Environment.PrimitiveType>
 	 * @param value
      * The value of the pair in the enum.
      */
-    protected constructor ( value: T )
+    public constructor ( value: T )
     {
         super();
 

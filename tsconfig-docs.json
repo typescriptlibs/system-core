@@ -6,10 +6,10 @@
         "excludePrivate": true,
         "excludeProtected": true,
         "includeDeclarations": false,
-        "gitRevision": "master",
         "mode": "file",
         "name": "System Core Library",
         "plugin": "none",
+        "readme": "README.md",
         "theme": "node_modules/typescriptlibs.typedoc.theme"
     }
 }

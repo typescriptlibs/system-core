@@ -42,6 +42,7 @@
         "reflection",
         "runtime",
         "System",
+        "System.Reflection",
         "System.Runtime",
         "TypeScript"
     ],
@@ -54,7 +55,7 @@
         "lint": "eslint sources/**/*.ts",
         "next": "npm publish --access=public --tag next",
         "pack": "r_js -o rjsconfig-client.js",
-        "tests": "npm run lint && tsc --build tsconfig-tests.json && node tests/index.tests.js && npm run clean",
+        "tests": "npm run lint && tsc --build tsconfig-tests.json && node tests/index.tests.js && rm -rf tests",
         "watch": "npm run clean && npm run compile -- --watch"
     }
 }

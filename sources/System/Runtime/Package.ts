@@ -16,7 +16,7 @@
 //
 ////
 
-import { Namespace, INamespaceClassDecorator } from './Namespace';
+import Namespace from './Namespace';
 
 ////
 //
@@ -35,7 +35,7 @@ export interface IPackageClassConstructor extends Function
 
 export interface IPackageClassDecorator extends ClassDecorator
 {
-    $: typeof Namespace;
+    $ ( ...additionalNamespaces: Array<string> ): IPackageClassDecorator;
 }
 
 ////
@@ -48,14 +48,13 @@ export interface IPackageClassDecorator extends ClassDecorator
  * Decorates the constructor of the following class with a package and optional
  * namespace for further reflection.
  *
- * @example
  * ```ts
- *     @Package('@tsl', 'system-core').$('System').$('Reflection')
- *     export class MemberInfo
- *     {
- *         // => package: '@tsl/system-core'
- *         // => namespace: 'System.Runtime'
- *     }
+ * @Package('@tsl', 'system-core').$('System').$('Reflection')
+ * export class MemberInfo
+ * {
+ *     // => package: '@tsl/system-core'
+ *     // => namespace: 'System.Runtime'
+ * }
  * ```
  *
  * @param packages
@@ -64,7 +63,7 @@ export interface IPackageClassDecorator extends ClassDecorator
  */
 export function Package ( ...packages: Array<string> ): IPackageClassDecorator
 {
-    let namespaceDecorator: INamespaceClassDecorator;
+    let namespaces: Array<string> = [];
 
     const decorator = function <T extends IPackageClassConstructor> ( target: T ): T
     {
@@ -80,9 +79,9 @@ export function Package ( ...packages: Array<string> ): IPackageClassDecorator
             value: packages.join( '/' )
         } );
 
-        if ( typeof namespaceDecorator !== 'undefined' )
+        if ( namespaces.length > 0 )
         {
-            namespaceDecorator( target );
+            Namespace( ...namespaces )( target );
         }
 
         return target;
@@ -94,7 +93,7 @@ export function Package ( ...packages: Array<string> ): IPackageClassDecorator
         writable: false,
         value: function ( ...additionalNamespaces: Array<string> ): IPackageClassDecorator
         {
-            namespaceDecorator = Namespace( ...additionalNamespaces );
+            namespaces.push( ...additionalNamespaces );
 
             return decorator;
         }

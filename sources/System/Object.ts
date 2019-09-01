@@ -21,7 +21,7 @@ import IDisposable from './IDisposable';
 import { INamespaceClassConstructor } from './Runtime/Namespace';
 import { IPackageClassConstructor } from './Runtime/Package';
 import RuntimeUtility from './Runtime/RuntimeUtility';
-import SystemCoreDecorator from '../package';
+import PackageClassDecorator from '../package';
 
 ////
 //
@@ -30,10 +30,18 @@ import SystemCoreDecorator from '../package';
 ////
 
 /**
- * The base class for all other classes. Internally defined as `OBJECT` to avoid
- * conflicts, but externally available as `Object`.
+ * The base `Object` class for all other classes. Internally defined in upper
+ * case to avoid conflicts with reserved keywords.
+ *
+ * ```ts
+ * import { Object, OBJECT } from '@tsl/system-core';
+ * let obj = new Object();
+ * console.log(obj.getType().fullName); // @tsl/system-core/System.Object
+ * obj = new OBJECT();
+ * console.log(obj.getType().fullName); // @tsl/system-core/System.Object
+ * ```
  */
-@SystemCoreDecorator
+@PackageClassDecorator
 export class OBJECT
 {
     ////
@@ -126,9 +134,19 @@ export class OBJECT
 }
 
 /**
- * The type class of an object provides information for further reflection.
+ * The `Type` class of an object provides information for further reflection.
+ *
+ * ```ts
+ * import { Object, OBJECT, Type } from '@tsl/system-core';
+ * let obj = new Object();
+ * console.log(Type.of(obj).getType().fullName);
+ * // output: @tsl/system-core/System.Object
+ * obj = new OBJECT();
+ * console.log(TYPE.of(obj).fullName);
+ * // output: @tsl/system-core/System.Object
+ * ```
  */
-@SystemCoreDecorator
+@PackageClassDecorator
 export class Type extends OBJECT
 {
     ////
