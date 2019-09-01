@@ -7,6 +7,7 @@
     Licensed under the MIT License; you may not use this file except in
     compliance with the License. You may obtain a copy of the MIT License at
     https://typescriptlibs.org/LICENSE.txt
+
 \*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*/
 
 ////
@@ -18,7 +19,7 @@
 import Environment from './Runtime/Environment';
 import Object from './Object';
 import RuntimeUtility from './Runtime/RuntimeUtility';
-import SystemClassDecorator from '../package';
+import PackageClassDecorator from '../package';
 
 ////
 //
@@ -29,7 +30,7 @@ import SystemClassDecorator from '../package';
 /**
  * The base class for value types.
  */
-@SystemClassDecorator
+@PackageClassDecorator
 export abstract class ValueType<T extends Environment.PrimitiveType> extends Object
 {
     ////
