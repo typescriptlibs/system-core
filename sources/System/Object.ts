@@ -30,7 +30,8 @@ import SystemCoreDecorator from '../package';
 ////
 
 /**
- * The base class for all other classes.
+ * The base class for all other classes. Internally defined as `OBJECT` to avoid
+ * conflicts, but externally available as `Object`.
  */
 @SystemCoreDecorator
 export class OBJECT
