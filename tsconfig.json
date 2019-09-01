@@ -3,18 +3,14 @@
         "declaration": true,
         "experimentalDecorators": true,
         "noEmitOnError": true,
-        "resolveJsonModule": true,
+        "rootDir": "sources",
         "sourceMap": true,
         "strict": true,
         "module": "commonjs",
         "moduleResolution": "node",
-        "outDir": "lib",
-        "rootDir": "sources",
-        "target": "es2015"
+        "target": "es5"
     },
     "exclude": [
-        "client",
-        "lib",
         "node_modules"
     ],
     "include": [
