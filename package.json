@@ -1,22 +1,15 @@
 {
     "private": true,
-    "name": "@tsl/system-core",
-    "version": "0.0.1",
     "author": "TypeScriptLibs and Contributors",
-    "license": "MIT",
-    "description": "System Core Library - contains runtime, reflection, and primitives",
-    "keywords": [
-        "core",
-        "primitives",
-        "reflection",
-        "runtime",
-        "System",
-        "System.Runtime",
-        "TypeScript"
-    ],
     "bugs": "https://github.com/typescriptlibs/system-core/issues",
+    "description": "System Core Library - contains runtime, reflection, and primitives",
     "homepage": "https://github.com/typescriptlibs/system-core#readme",
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@tsl/system-core",
     "repository": "https://github.com/typescriptlibs/system-core.git",
+    "types": "index.d.ts",
+    "version": "0.0.1",
     "devDependencies": {
         "@types/node": "^12.7.2",
         "@typescript-eslint/eslint-plugin": "^2.0.0",
@@ -26,33 +19,42 @@
         "requirejs": "^2.3.6",
         "typedoc": "^0.15.0",
         "typescript": "^3.6.2",
-        "typescriptlibs.typedoc.theme": "https://github.com/typescriptlibs/typescriptlibs.typedoc.theme.git"
+        "typescriptlibs.typedoc.theme": "github:typescriptlibs/typescriptlibs.typedoc.theme#v0.6.2"
     },
     "engines": {
         "node": ">=10.15.2"
     },
     "files": [
         "client",
-        "lib",
+        "System",
         "CHANGELOG",
         "LICENSE",
         "README.md"
     ],
-    "scripts": {
-        "docs": "typedoc --out docs --tsconfig tsconfig-docs.json",
-        "build": "npm run clean && npm run compile && npm run pack",
-        "clean": "rm -rf client docs lib",
-        "compile": "tsc --build tsconfig.json tsconfig-client.json",
-        "final": "npm publish --access=public",
-        "lint": "eslint sources/**/*.ts",
-        "next": "npm publish --access=public --tag next",
-        "pack": "r_js -o rjsconfig-client.js",
-        "tests": "npm run lint && tsc --build tsconfig-tests.json",
-        "watch": "npm run clean && npm run compile -- --watch"
-    },
     "husky": {
         "hooks": {
             "pre-commit": "npm run tests"
         }
+    },
+    "keywords": [
+        "core",
+        "primitives",
+        "reflection",
+        "runtime",
+        "System",
+        "System.Runtime",
+        "TypeScript"
+    ],
+    "scripts": {
+        "docs": "typedoc --out docs --tsconfig tsconfig-docs.json",
+        "build": "npm run clean && npm run compile && npm run pack",
+        "clean": "xargs rm -rf < .clean",
+        "compile": "tsc --build tsconfig-client.json tsconfig-package.json",
+        "final": "npm publish --access=public",
+        "lint": "eslint sources/**/*.ts",
+        "next": "npm publish --access=public --tag next",
+        "pack": "r_js -o rjsconfig-client.js",
+        "tests": "npm run lint && tsc --build tsconfig-tests.json && node tests/index.tests.js && npm run clean",
+        "watch": "npm run clean && npm run compile -- --watch"
     }
 }
