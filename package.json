@@ -47,7 +47,7 @@
         "TypeScript"
     ],
     "scripts": {
-        "docs": "typedoc --out docs --tsconfig tsconfig-docs.json",
+        "docs": "typedoc --out docs/api --tsconfig tsconfig-docs.json",
         "build": "npm run clean && npm run compile && npm run pack",
         "clean": "xargs rm -rf < .clean",
         "compile": "tsc --build tsconfig-client.json tsconfig-package.json",

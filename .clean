@@ -1,5 +1,5 @@
 client
-docs
+docs/api
 index.d.ts
 index.js
 index.js.map

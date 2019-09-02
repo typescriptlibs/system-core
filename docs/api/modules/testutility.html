@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RuntimeUtility | System Core Library</title>
+	<title>TestUtility | System Core API | TypeScript Libraries</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">System Core Library</a>
+					<a href="../index.html" class="title">System Core API</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,23 +52,16 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="runtimeutility.html">RuntimeUtility</a>
+					<a href="testutility.html">TestUtility</a>
 				</li>
 			</ul>
-			<h1>Module RuntimeUtility</h1>
+			<h1>Module TestUtility</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Provides special functions for the runtime session.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -76,10 +69,11 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="runtimeutility.html#exit" class="tsd-kind-icon">exit</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="runtimeutility.html#generatestringhashcode" class="tsd-kind-icon">generate<wbr>String<wbr>Hash<wbr>Code</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="runtimeutility.html#generateuniquehashcode" class="tsd-kind-icon">generate<wbr>Unique<wbr>Hash<wbr>Code</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="runtimeutility.html#registerdisposable" class="tsd-kind-icon">register<wbr>Disposable</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="testutility.html#assertdeepequal" class="tsd-kind-icon">assert<wbr>Deep<wbr>Equal</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="testutility.html#assertequal" class="tsd-kind-icon">assert<wbr>Equal</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="testutility.html#assertnotequal" class="tsd-kind-icon">assert<wbr>Not<wbr>Equal</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="testutility.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="testutility.html#getassertcounter" class="tsd-kind-icon">get<wbr>Assert<wbr>Counter</a></li>
 							</ul>
 						</section>
 					</div>
@@ -87,121 +81,140 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="exit" class="tsd-anchor"></a>
-					<h3>exit</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">exit<span class="tsd-signature-symbol">(</span>exitCode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="assertdeepequal" class="tsd-anchor"></a>
+					<h3>assert<wbr>Deep<wbr>Equal</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">assert<wbr>Deep<wbr>Equal&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, expected<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, errorMessage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Terminates the current runtime session and returns an exit code to the
-									runtime engine.</p>
-								</div>
-							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> exitCode: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Exit code for the runtime engine.</p>
-									</div>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5>expected: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> errorMessage: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/e19fc89/sources/System/Runtime/RuntimeUtility.ts#L112">System/Runtime/RuntimeUtility.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Runtime/TestUtility.ts#L35">System/Runtime/TestUtility.ts:35</a></li>
 								</ul>
 							</aside>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="generatestringhashcode" class="tsd-anchor"></a>
-					<h3>generate<wbr>String<wbr>Hash<wbr>Code</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">generate<wbr>String<wbr>Hash<wbr>Code<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="assertequal" class="tsd-anchor"></a>
+					<h3>assert<wbr>Equal</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">assert<wbr>Equal&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, expected<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, errorMessage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Generates and returns a unique code for a string. This code is only
-									unique during the current runtime session.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
 								<li>
-									<h5>str: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>String to generate the unique code of.</p>
-									</div>
+									<h4>T</h4>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/e19fc89/sources/System/Runtime/RuntimeUtility.ts#L133">System/Runtime/RuntimeUtility.ts:133</a></li>
-								</ul>
-							</aside>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="generateuniquehashcode" class="tsd-anchor"></a>
-					<h3>generate<wbr>Unique<wbr>Hash<wbr>Code</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">generate<wbr>Unique<wbr>Hash<wbr>Code<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Generates and returns a unique code for an object instances. This code is
-									only unique during the current runtime session.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/e19fc89/sources/System/Runtime/RuntimeUtility.ts#L160">System/Runtime/RuntimeUtility.ts:160</a></li>
-								</ul>
-							</aside>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="registerdisposable" class="tsd-anchor"></a>
-					<h3>register<wbr>Disposable</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">register<wbr>Disposable<span class="tsd-signature-symbol">(</span>object<span class="tsd-signature-symbol">: </span><a href="../interfaces/idisposable.html" class="tsd-signature-type">IDisposable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Registers a disposable object for handling of unmanaged data on runtime
-										termination. There is no guarantee that the dispose function gets called,
-									because a runtime engine can be forced to terminate immediately.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>object: <a href="../interfaces/idisposable.html" class="tsd-signature-type">IDisposable</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Disposable object to handle.</p>
-									</div>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5>expected: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> errorMessage: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/e19fc89/sources/System/Runtime/RuntimeUtility.ts#L215">System/Runtime/RuntimeUtility.ts:215</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Runtime/TestUtility.ts#L47">System/Runtime/TestUtility.ts:47</a></li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="assertnotequal" class="tsd-anchor"></a>
+					<h3>assert<wbr>Not<wbr>Equal</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">assert<wbr>Not<wbr>Equal&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, notExpected<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, errorMessage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5>notExpected: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> errorMessage: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Runtime/TestUtility.ts#L61">System/Runtime/TestUtility.ts:61</a></li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="clear" class="tsd-anchor"></a>
+					<h3>clear</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Runtime/TestUtility.ts#L75">System/Runtime/TestUtility.ts:75</a></li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="getassertcounter" class="tsd-anchor"></a>
+					<h3>get<wbr>Assert<wbr>Counter</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Assert<wbr>Counter<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Runtime/TestUtility.ts#L80">System/Runtime/TestUtility.ts:80</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -218,27 +231,30 @@
 					<li class=" tsd-kind-module">
 						<a href="environment.html">Environment</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="runtimeutility.html">Runtime<wbr>Utility</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="testutility.html">Test<wbr>Utility</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="runtimeutility.html#exit" class="tsd-kind-icon">exit</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="testutility.html#assertdeepequal" class="tsd-kind-icon">assert<wbr>Deep<wbr>Equal</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="testutility.html#assertequal" class="tsd-kind-icon">assert<wbr>Equal</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="testutility.html#assertnotequal" class="tsd-kind-icon">assert<wbr>Not<wbr>Equal</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="runtimeutility.html#generatestringhashcode" class="tsd-kind-icon">generate<wbr>String<wbr>Hash<wbr>Code</a>
+						<a href="testutility.html#clear" class="tsd-kind-icon">clear</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="runtimeutility.html#generateuniquehashcode" class="tsd-kind-icon">generate<wbr>Unique<wbr>Hash<wbr>Code</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="runtimeutility.html#registerdisposable" class="tsd-kind-icon">register<wbr>Disposable</a>
+						<a href="testutility.html#getassertcounter" class="tsd-kind-icon">get<wbr>Assert<wbr>Counter</a>
 					</li>
 				</ul>
 			</nav>

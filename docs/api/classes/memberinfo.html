@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ValueType | System Core Library</title>
+	<title>MemberInfo | System Core API | TypeScript Libraries</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">System Core Library</a>
+					<a href="../index.html" class="title">System Core API</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,10 +52,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="valuetype.html">ValueType</a>
+					<a href="memberinfo.html">MemberInfo</a>
 				</li>
 			</ul>
-			<h1>Class ValueType&lt;T&gt;</h1>
+			<h1>Class MemberInfo</h1>
 		</div>
 	</div>
 </header>
@@ -65,17 +65,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The base class for value types.</p>
+						<p>Provides information about a reflected member.</p>
 					</div>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T<span class="tsd-signature-symbol">: </span><a href="../modules/environment.html#primitivetype" class="tsd-signature-type">PrimitiveType</a></h4>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
@@ -84,10 +76,10 @@
 						<a href="object.html" class="tsd-signature-type">OBJECT</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">ValueType</span>
+								<span class="target">MemberInfo</span>
 								<ul class="tsd-hierarchy">
 									<li>
-										<a href="enum.html" class="tsd-signature-type">Enum</a>
+										<a href="type.html" class="tsd-signature-type">Type</a>
 									</li>
 								</ul>
 							</li>
@@ -102,17 +94,25 @@
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="valuetype.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="memberinfo.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="memberinfo.html#declaringtype" class="tsd-kind-icon">declaring<wbr>Type</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="memberinfo.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="memberinfo.html#reflectedtype" class="tsd-kind-icon">reflected<wbr>Type</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="valuetype.html#equals" class="tsd-kind-icon">equals</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="valuetype.html#gethashcode" class="tsd-kind-icon">get<wbr>Hash<wbr>Code</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="valuetype.html#gettype" class="tsd-kind-icon">get<wbr>Type</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="valuetype.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="valuetype.html#valueof" class="tsd-kind-icon">value<wbr>Of</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="memberinfo.html#equals" class="tsd-kind-icon">equals</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="memberinfo.html#gethashcode" class="tsd-kind-icon">get<wbr>Hash<wbr>Code</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="memberinfo.html#gettype" class="tsd-kind-icon">get<wbr>Type</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="memberinfo.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="memberinfo.html#valueof" class="tsd-kind-icon">value<wbr>Of</a></li>
 							</ul>
 						</section>
 					</div>
@@ -124,7 +124,7 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Value<wbr>Type<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="valuetype.html" class="tsd-signature-type">ValueType</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Member<wbr>Info<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="memberinfo.html" class="tsd-signature-type">MemberInfo</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -133,11 +133,11 @@
 									<p>Instantiates a basic object.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="valuetype.html" class="tsd-signature-type">ValueType</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="memberinfo.html" class="tsd-signature-type">MemberInfo</a></h4>
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="object.html">OBJECT</a>.<a href="object.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/e19fc89/sources/System/Object.ts#L54">System/Object.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L55">System/Object.ts:55</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -145,57 +145,127 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="equals" class="tsd-anchor"></a>
-					<h3>equals</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">equals<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="valuetype.html" class="tsd-signature-type">ValueType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="declaringtype" class="tsd-anchor"></a>
+					<h3>declaring<wbr>Type</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> declaringType<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="type.html" class="tsd-signature-type">Type</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns true, if the object value is equal to the other object value.</p>
+									<p>Returns the type that declares the member.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>other: <a href="valuetype.html" class="tsd-signature-type">ValueType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The object value to compare with.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="type.html" class="tsd-signature-type">Type</a></h4>
 							<aside class="tsd-sources">
-								<p>Overrides <a href="object.html">OBJECT</a>.<a href="object.html#equals">equals</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/e19fc89/sources/System/ValueType.ts#L48">System/ValueType.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L152">System/Object.ts:152</a></li>
 								</ul>
 							</aside>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> name<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the name of the member.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L157">System/Object.ts:157</a></li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="reflectedtype" class="tsd-anchor"></a>
+					<h3>reflected<wbr>Type</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> reflectedType<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="type.html" class="tsd-signature-type">Type</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the type that was used to get the member info.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="type.html" class="tsd-signature-type">Type</a></h4>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L162">System/Object.ts:162</a></li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="equals" class="tsd-anchor"></a>
+					<h3>equals</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">equals<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="object.html" class="tsd-signature-type">OBJECT</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Compares this object instance with an other object instance for equality.
+									Returns true, if the object instances are equal.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="object.html" class="tsd-signature-type">OBJECT</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The object instance to compare with.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="object.html">OBJECT</a>.<a href="object.html#equals">equals</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L89">System/Object.ts:89</a></li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="gethashcode" class="tsd-anchor"></a>
 					<h3>get<wbr>Hash<wbr>Code</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Hash<wbr>Code<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Generates and returns a unique code for the string value of this object.</p>
+									<p>Generates and returns a unique code for this object instance.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 							<aside class="tsd-sources">
-								<p>Overrides <a href="object.html">OBJECT</a>.<a href="object.html#gethashcode">getHashCode</a></p>
+								<p>Inherited from <a href="object.html">OBJECT</a>.<a href="object.html#gethashcode">getHashCode</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/e19fc89/sources/System/ValueType.ts#L56">System/ValueType.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L101">System/Object.ts:101</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -218,53 +288,67 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="object.html">OBJECT</a>.<a href="object.html#gettype">getType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/e19fc89/sources/System/Object.ts#L113">System/Object.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L114">System/Object.ts:114</a></li>
 								</ul>
 							</aside>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="tostring" class="tsd-anchor"></a>
 					<h3>to<wbr>String</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the string of this object value.</p>
+									<p>Returns the class name as the default string representation of an
+									object. Must be overwritten by value based classes.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 							<aside class="tsd-sources">
-								<p>Overrides <a href="object.html">OBJECT</a>.<a href="object.html#tostring">toString</a></p>
+								<p>Inherited from <a href="object.html">OBJECT</a>.<a href="object.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/e19fc89/sources/System/ValueType.ts#L64">System/ValueType.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L123">System/Object.ts:123</a></li>
 								</ul>
 							</aside>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="valueof" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> value<wbr>Of</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">value<wbr>Of<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+					<h3>value<wbr>Of</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">value<wbr>Of<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">bigint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the primitive value of this object. Must be overwritten.</p>
+									<p>Returns the primitive value of the object instance.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">number</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">bigint</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">false</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">true</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">symbol</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">this</span>
+							</h4>
 							<aside class="tsd-sources">
-								<p>Overrides <a href="object.html">OBJECT</a>.<a href="object.html#valueof">valueOf</a></p>
+								<p>Inherited from <a href="object.html">OBJECT</a>.<a href="object.html#valueof">valueOf</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/e19fc89/sources/System/ValueType.ts#L72">System/ValueType.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L131">System/Object.ts:131</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -285,6 +369,42 @@
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="enum.html" class="tsd-kind-icon">Enum</a>
 					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="memberinfo.html" class="tsd-kind-icon">Member<wbr>Info</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+								<a href="memberinfo.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="memberinfo.html#declaringtype" class="tsd-kind-icon">declaring<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="memberinfo.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="memberinfo.html#reflectedtype" class="tsd-kind-icon">reflected<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="memberinfo.html#equals" class="tsd-kind-icon">equals</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="memberinfo.html#gethashcode" class="tsd-kind-icon">get<wbr>Hash<wbr>Code</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="memberinfo.html#gettype" class="tsd-kind-icon">get<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="memberinfo.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="memberinfo.html#valueof" class="tsd-kind-icon">value<wbr>Of</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="membertypes.html" class="tsd-kind-icon">Member<wbr>Types</a>
 					</li>
@@ -294,33 +414,9 @@
 					<li class=" tsd-kind-class">
 						<a href="type.html" class="tsd-kind-icon">Type</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class tsd-has-type-parameter">
+					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="valuetype.html" class="tsd-kind-icon">Value<wbr>Type</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-								<a href="valuetype.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="valuetype.html#equals" class="tsd-kind-icon">equals</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="valuetype.html#gethashcode" class="tsd-kind-icon">get<wbr>Hash<wbr>Code</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="valuetype.html#gettype" class="tsd-kind-icon">get<wbr>Type</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="valuetype.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="valuetype.html#valueof" class="tsd-kind-icon">value<wbr>Of</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="../interfaces/icomparable.html" class="tsd-kind-icon">IComparable</a>
 					</li>
