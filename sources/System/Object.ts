@@ -16,12 +16,13 @@
 //
 ////
 
+import Enum from './Enum';
 import Environment from './Runtime/Environment';
 import IDisposable from './IDisposable';
 import { INamespaceClassConstructor } from './Runtime/Namespace';
 import { IPackageClassConstructor } from './Runtime/Package';
-import RuntimeUtility from './Runtime/RuntimeUtility';
 import PackageClassDecorator from '../package';
+import RuntimeUtility from './Runtime/RuntimeUtility';
 
 ////
 //
@@ -134,6 +135,34 @@ export class OBJECT
 }
 
 /**
+ * Provides information about a reflected member.
+ */
+@PackageClassDecorator
+export abstract class MemberInfo extends OBJECT
+{
+    ////
+    //
+    //  Properties
+    //
+    ////
+
+    /**
+     * Returns the type that declares the member.
+     */
+    public abstract get declaringType (): Type;
+
+    /**
+     * Returns the name of the member.
+     */
+    public abstract get name (): string;
+
+    /**
+     * Returns the type that was used to get the member info.
+     */
+    public abstract get reflectedType (): Type;
+}
+
+/**
  * The `Type` class of an object provides information for further reflection.
  *
  * ```ts
@@ -147,7 +176,7 @@ export class OBJECT
  * ```
  */
 @PackageClassDecorator
-export class Type extends OBJECT
+export class Type extends MemberInfo
 {
     ////
     //
@@ -184,7 +213,7 @@ export class Type extends OBJECT
 
         const constructor = ( object instanceof Function ? object : object.constructor );
 
-        this._constructor = constructor as Environment.ConstructorType;
+        this._constructor = constructor;
         this._name = constructor.name;
         this._namespace = ( constructor as INamespaceClassConstructor )['[[__namespace__]]'];
         this._package = ( constructor as IPackageClassConstructor )['[[__package__]]'];
@@ -205,11 +234,19 @@ export class Type extends OBJECT
     //
     ////
 
-    private _constructor: Environment.ConstructorType;
+    private _constructor: Function;
     private _hashCode: ( number | undefined );
     private _name: string;
     private _namespace: ( string | undefined );
     private _package: ( string | undefined );
+
+    /**
+     * Returns the class type.
+     */
+    public get declaringType (): Type
+    {
+        return this;
+    }
 
     /**
      * Returns the full class name.
@@ -235,6 +272,14 @@ export class Type extends OBJECT
     }
 
     /**
+     * Returns true, if the type represents an enum class.
+     */
+    public isEnum (): boolean
+    {
+        return this._constructor instanceof Enum;
+    }
+
+    /**
      * Returns the class name.
      */
     public get name (): string
@@ -256,6 +301,14 @@ export class Type extends OBJECT
     public get package (): ( string | undefined )
     {
         return this._package;
+    }
+
+    /**
+     * Returns the class type.
+     */
+    public get reflectedType (): Type
+    {
+        return this;
     }
 
     ////
@@ -284,7 +337,8 @@ export class Type extends OBJECT
      */
     public getEnumNames (): Array<string>
     {
-        const enumConstructor = this._constructor;
+        const enumConstructor: Function & Record<string, unknown> =
+            this._constructor as unknown as Function & Record<string, unknown>;
 
         if ( typeof enumConstructor !== 'function' )
         {
