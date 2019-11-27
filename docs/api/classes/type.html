@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">System Core API</a>
+					<a href="https://typescriptlibs.org/" class="title">TypeScript Libraries</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -49,13 +49,14 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../index.html">Globals</a>
 				</li>
 				<li>
 					<a href="type.html">Type</a>
 				</li>
 			</ul>
-			<h1>Class Type</h1>
+			<h1>
+			Class Type</h1>
 		</div>
 	</div>
 </header>
@@ -65,15 +66,17 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The <code>Type</code> class of an object provides information for further reflection.</p>
+						<p>The &#x60;Type&#x60; class of an object provides information for further reflection.</p>
 					</div>
-					<pre><code class="language-ts"><span class="hljs-keyword">import</span> { <span class="hljs-built_in">Object</span>, OBJECT, Type } <span class="hljs-keyword">from</span> <span class="hljs-string">'@tsl/system-core'</span>;
-<span class="hljs-keyword">let</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();
-<span class="hljs-built_in">console</span>.log(Type.of(obj).getType().fullName);
-<span class="hljs-comment">// output: @tsl/system-core/System.Object</span>
-obj = <span class="hljs-keyword">new</span> OBJECT();
-<span class="hljs-built_in">console</span>.log(TYPE.of(obj).fullName);
-<span class="hljs-comment">// output: @tsl/system-core/System.Object</span></code></pre>
+					<p>&#x60;&#x60;&#x60;ts
+						import { Object, OBJECT, Type } from &#x27;@tsl/system-core&#x27;;
+						let obj &#x3D; new Object();
+						console.log(Type.of(obj).getType().fullName);
+						// output: @tsl/system-core/System.Object
+						obj &#x3D; new OBJECT();
+						console.log(TYPE.of(obj).fullName);
+						// output: @tsl/system-core/System.Object
+					&#x60;&#x60;&#x60;</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -145,7 +148,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="object.html">OBJECT</a>.<a href="object.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L55">System/Object.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L55">sources/System/Object.ts:55</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -171,7 +174,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<aside class="tsd-sources">
 								<p>Overrides <a href="memberinfo.html">MemberInfo</a>.<a href="memberinfo.html#declaringtype">declaringType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L246">System/Object.ts:246</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L246">sources/System/Object.ts:246</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -193,7 +196,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L254">System/Object.ts:254</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L254">sources/System/Object.ts:254</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -216,7 +219,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<aside class="tsd-sources">
 								<p>Overrides <a href="memberinfo.html">MemberInfo</a>.<a href="memberinfo.html#name">name</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L285">System/Object.ts:285</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L285">sources/System/Object.ts:285</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -241,7 +244,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							</h4>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L293">System/Object.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L293">sources/System/Object.ts:293</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -266,7 +269,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							</h4>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L301">System/Object.ts:301</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L301">sources/System/Object.ts:301</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -289,7 +292,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<aside class="tsd-sources">
 								<p>Overrides <a href="memberinfo.html">MemberInfo</a>.<a href="memberinfo.html#reflectedtype">reflectedType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L309">System/Object.ts:309</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L309">sources/System/Object.ts:309</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -325,7 +328,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<aside class="tsd-sources">
 								<p>Overrides <a href="object.html">OBJECT</a>.<a href="object.html#equals">equals</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L327">System/Object.ts:327</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L327">sources/System/Object.ts:327</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -347,7 +350,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L338">System/Object.ts:338</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L338">sources/System/Object.ts:338</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -370,7 +373,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<aside class="tsd-sources">
 								<p>Overrides <a href="object.html">OBJECT</a>.<a href="object.html#gethashcode">getHashCode</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L361">System/Object.ts:361</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L361">sources/System/Object.ts:361</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -393,7 +396,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<aside class="tsd-sources">
 								<p>Overrides <a href="object.html">OBJECT</a>.<a href="object.html#gettype">getType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L374">System/Object.ts:374</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L374">sources/System/Object.ts:374</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -415,7 +418,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L277">System/Object.ts:277</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L277">sources/System/Object.ts:277</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -438,7 +441,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<aside class="tsd-sources">
 								<p>Overrides <a href="object.html">OBJECT</a>.<a href="object.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L382">System/Object.ts:382</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L382">sources/System/Object.ts:382</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -461,7 +464,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<aside class="tsd-sources">
 								<p>Overrides <a href="object.html">OBJECT</a>.<a href="object.html#valueof">valueOf</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L390">System/Object.ts:390</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L390">sources/System/Object.ts:390</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -492,7 +495,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 							<h4 class="tsd-returns-title">Returns <a href="type.html" class="tsd-signature-type">Type</a></h4>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/40549c2/sources/System/Object.ts#L193">System/Object.ts:193</a></li>
+									<li>Defined in <a href="https://github.com/typescriptlibs/system-core/blob/2240fc6/sources/System/Object.ts#L193">sources/System/Object.ts:193</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -504,7 +507,7 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+						<a href="../index.html"><em>Globals</em></a>
 					</li>
 				</ul>
 			</nav>
@@ -598,19 +601,19 @@ obj = <span class="hljs-keyword">new</span> OBJECT();
 						<a href="../interfaces/ipackageclassdecorator.html" class="tsd-kind-icon">IPackage<wbr>Class<wbr>Decorator</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-private">
-						<a href="../globals.html#packageclassdecorator" class="tsd-kind-icon">Package<wbr>Class<wbr>Decorator</a>
+						<a href="../index.html#packageclassdecorator" class="tsd-kind-icon">Package<wbr>Class<wbr>Decorator</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="../globals.html#packagename" class="tsd-kind-icon">Package<wbr>Name</a>
+						<a href="../index.html#packagename" class="tsd-kind-icon">Package<wbr>Name</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="../globals.html#packagenamespace" class="tsd-kind-icon">Package<wbr>Namespace</a>
+						<a href="../index.html#packagenamespace" class="tsd-kind-icon">Package<wbr>Namespace</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#namespace" class="tsd-kind-icon">Namespace</a>
+						<a href="../index.html#namespace" class="tsd-kind-icon">Namespace</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#package" class="tsd-kind-icon">Package</a>
+						<a href="../index.html#package" class="tsd-kind-icon">Package</a>
 					</li>
 				</ul>
 			</nav>
