@@ -1,4 +1,3 @@
-"use strict";
 /*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*\
 
     System Core Library
@@ -29,59 +28,70 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var Object_1 = require("./Object");
-var RuntimeUtility_1 = require("./Runtime/RuntimeUtility");
-var package_1 = require("../package");
-////
-//
-//  Classes
-//
-////
-/**
- * The base class for value types.
- */
-var ValueType = /** @class */ (function (_super) {
-    __extends(ValueType, _super);
-    function ValueType() {
-        return _super !== null && _super.apply(this, arguments) || this;
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
     }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports", "./Object", "./Runtime/RuntimeUtility", "../package"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var Object_1 = require("./Object");
+    var RuntimeUtility_1 = require("./Runtime/RuntimeUtility");
+    var package_1 = require("../package");
     ////
     //
-    //  Functions
+    //  Classes
     //
     ////
     /**
-     * Returns true, if the object value is equal to the other object value.
-     *
-     * @param other
-     * The object value to compare with.
+     * The base class for value types.
      */
-    ValueType.prototype.equals = function (other) {
-        return (this.valueOf() === other.valueOf());
-    };
-    /**
-     * Generates and returns a unique code for the string value of this object.
-     */
-    ValueType.prototype.getHashCode = function () {
-        return RuntimeUtility_1.default.generateStringHashCode(this.toString());
-    };
-    /**
-     * Returns the string of this object value.
-     */
-    ValueType.prototype.toString = function () {
-        return this.valueOf().toString();
-    };
-    ValueType = __decorate([
-        package_1.default
-    ], ValueType);
-    return ValueType;
-}(Object_1.default));
-exports.ValueType = ValueType;
-////
-//
-//  Exports
-//
-////
-exports.default = ValueType;
+    var ValueType = /** @class */ (function (_super) {
+        __extends(ValueType, _super);
+        function ValueType() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        ////
+        //
+        //  Functions
+        //
+        ////
+        /**
+         * Returns true, if the object value is equal to the other object value.
+         *
+         * @param other
+         * The object value to compare with.
+         */
+        ValueType.prototype.equals = function (other) {
+            return (this.valueOf() === other.valueOf());
+        };
+        /**
+         * Generates and returns a unique code for the string value of this object.
+         */
+        ValueType.prototype.getHashCode = function () {
+            return RuntimeUtility_1.default.generateStringHashCode(this.toString());
+        };
+        /**
+         * Returns the string of this object value.
+         */
+        ValueType.prototype.toString = function () {
+            return this.valueOf().toString();
+        };
+        ValueType = __decorate([
+            package_1.default
+        ], ValueType);
+        return ValueType;
+    }(Object_1.default));
+    exports.ValueType = ValueType;
+    ////
+    //
+    //  Exports
+    //
+    ////
+    exports.default = ValueType;
+});
 //# sourceMappingURL=ValueType.js.map

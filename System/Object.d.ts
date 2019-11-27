@@ -56,6 +56,23 @@ export declare class OBJECT {
     valueOf(): (bigint | boolean | number | string | symbol | this);
 }
 /**
+ * Provides information about a reflected member.
+ */
+export declare abstract class MemberInfo extends OBJECT {
+    /**
+     * Returns the type that declares the member.
+     */
+    abstract get declaringType(): Type;
+    /**
+     * Returns the name of the member.
+     */
+    abstract get name(): string;
+    /**
+     * Returns the type that was used to get the member info.
+     */
+    abstract get reflectedType(): Type;
+}
+/**
  * The `Type` class of an object provides information for further reflection.
  *
  * ```ts
@@ -68,7 +85,7 @@ export declare class OBJECT {
  * // output: @tsl/system-core/System.Object
  * ```
  */
-export declare class Type extends OBJECT {
+export declare class Type extends MemberInfo {
     /**
      * Returns the class type of the given object.
      *
@@ -89,21 +106,33 @@ export declare class Type extends OBJECT {
     private _namespace;
     private _package;
     /**
+     * Returns the class type.
+     */
+    get declaringType(): Type;
+    /**
      * Returns the full class name.
      */
-    readonly fullName: string;
+    get fullName(): string;
+    /**
+     * Returns true, if the type represents an enum class.
+     */
+    isEnum(): boolean;
     /**
      * Returns the class name.
      */
-    readonly name: string;
+    get name(): string;
     /**
      * Returns the class namespace.
      */
-    readonly namespace: (string | undefined);
+    get namespace(): (string | undefined);
     /**
      * Returns the class package.
      */
-    readonly package: (string | undefined);
+    get package(): (string | undefined);
+    /**
+     * Returns the class type.
+     */
+    get reflectedType(): Type;
     /**
      * Compares this object type with another object type. Returns true, if the
      * object types are equal, otherwise false.

@@ -16,7 +16,7 @@ Overview
 
 * [Homepage](https://typescriptlibs.org/system-core)
 
-* [MIT License](./LICENSE)
+* [MIT License](LICENSE)
 
 * [Source Code](https://github.com/typescriptlibs/system-core)
 

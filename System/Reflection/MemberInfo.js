@@ -15,40 +15,29 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./System/Runtime/Package"], factory);
+        define(["require", "exports", "../Object", "../Object"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     ////
     //
-    //  Imports
+    //  Import
     //
     ////
-    var Package_1 = require("./System/Runtime/Package");
+    var Object_1 = require("../Object");
     ////
     //
-    //  Constants
+    //  Classes
     //
     ////
-    /**
-     * Returns the package name.
-     */
-    exports.PackageName = '@tsl/system-core';
-    /**
-     * Returns the package namespace.
-     */
-    exports.PackageNamespace = 'System';
-    /**
-     * Returns the internal class decorator of the package.
-     * @private
-     */
-    exports.PackageClassDecorator = Package_1.Package(exports.PackageName).$(exports.PackageNamespace);
+    var Object_2 = require("../Object");
+    exports.MemberInfo = Object_2.MemberInfo;
     ////
     //
     //  Export
     //
     ////
-    exports.default = exports.PackageClassDecorator;
+    exports.default = Object_1.MemberInfo;
 });
-//# sourceMappingURL=package.js.map
+//# sourceMappingURL=MemberInfo.js.map

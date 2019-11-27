@@ -9,8 +9,6 @@
     https://typescriptlibs.org/LICENSE.txt
 
 \*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*/
-define(["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-});
-//# sourceMappingURL=IDisposable.js.map
+import { MemberInfo } from '../Object';
+export { MemberInfo } from '../Object';
+export default MemberInfo;

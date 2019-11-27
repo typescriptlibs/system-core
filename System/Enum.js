@@ -1,4 +1,3 @@
-"use strict";
 /*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*\
 
     System Core Library
@@ -29,119 +28,130 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var package_1 = require("../package");
-var ValueType_1 = require("./ValueType");
-////
-//
-//  Classes
-//
-////
-/**
- * This is the abstract base class for enums.
- *
- * ```ts
- * import { Enum } from `@tsl/system-core`;
- * class MyEnum extends Enum<boolean>
- * {
- *     public static readonly No = new MyEnum(false);
- *     public static readonly Yes = new MyEnum(true);
- * }
- * const myFlag: MyEnum = MyEnum.No;
- * ```
- */
-var Enum = /** @class */ (function (_super) {
-    __extends(Enum, _super);
-    ////
-    //
-    //  Constructor
-    //
-    ////
-    /**
-     * Instantiates a new enum value.
-     *
-     * @param value
-     * The value of the pair in the enum.
-     */
-    function Enum(value) {
-        var _this = _super.call(this) || this;
-        _this._value = value;
-        return _this;
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
     }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports", "../package", "./ValueType"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var package_1 = require("../package");
+    var ValueType_1 = require("./ValueType");
     ////
     //
-    //  Static Functions
-    //
-    ////
-    /**
-     * Returns all names of the given enum type.
-     *
-     * @param enumType
-     * The enum type.
-     */
-    Enum.getNames = function (enumType) {
-        return enumType.getEnumNames();
-    };
-    ////
-    //
-    //  Functions
+    //  Classes
     //
     ////
     /**
-     * Returns true, if the enum instance is the same.
+     * This is the abstract base class for enums.
      *
-     * @param other
-     * The enum to compare with.
+     * ```ts
+     * import { Enum } from `@tsl/system-core`;
+     * class MyEnum extends Enum<boolean>
+     * {
+     *     public static readonly No = new MyEnum(false);
+     *     public static readonly Yes = new MyEnum(true);
+     * }
+     * const myFlag: MyEnum = MyEnum.No;
+     * ```
      */
-    Enum.prototype.equals = function (other) {
-        return (this === other);
-    };
-    /**
-     * Returns a number indicating the order position of the current enum in
-     * comparison to an other enum of the same type.
-     *
-     * - A number lower than zero (`< 0`) means, that the order position of the
-     *   current enum comes before the order position of the other enum.
-     *
-     * - A number equal to zero (`=== 0`) means, that both enums share the same
-     *   order position.
-     *
-     * - A number higher than zero (`> 0`) means, that the order position of the
-     *   current enum comes after the order position of the other enum.
-     */
-    Enum.prototype.compareTo = function (other) {
-        var otherValue = other.valueOf();
-        var thisValue = this.valueOf();
-        if (thisValue < otherValue) {
-            return -1;
+    var Enum = /** @class */ (function (_super) {
+        __extends(Enum, _super);
+        ////
+        //
+        //  Constructor
+        //
+        ////
+        /**
+         * Instantiates a new enum value.
+         *
+         * @param value
+         * The value of the pair in the enum.
+         */
+        function Enum(value) {
+            var _this = _super.call(this) || this;
+            _this._value = value;
+            return _this;
         }
-        else if (thisValue > otherValue) {
-            return 1;
-        }
-        return 0;
-    };
-    /**
-     * Returns the value of the enum member.
-     */
-    Enum.prototype.valueOf = function () {
-        return this._value;
-    };
+        ////
+        //
+        //  Static Functions
+        //
+        ////
+        /**
+         * Returns all names of the given enum type.
+         *
+         * @param enumType
+         * The enum type.
+         */
+        Enum.getNames = function (enumType) {
+            return enumType.getEnumNames();
+        };
+        ////
+        //
+        //  Functions
+        //
+        ////
+        /**
+         * Returns true, if the enum instance is the same.
+         *
+         * @param other
+         * The enum to compare with.
+         */
+        Enum.prototype.equals = function (other) {
+            return (this === other);
+        };
+        /**
+         * Returns a number indicating the order position of the current enum in
+         * comparison to an other enum of the same type.
+         *
+         * - A number lower than zero (`< 0`) means, that the order position of the
+         *   current enum comes before the order position of the other enum.
+         *
+         * - A number equal to zero (`=== 0`) means, that both enums share the same
+         *   order position.
+         *
+         * - A number higher than zero (`> 0`) means, that the order position of the
+         *   current enum comes after the order position of the other enum.
+         */
+        Enum.prototype.compareTo = function (other) {
+            var otherValue = other.valueOf();
+            var thisValue = this.valueOf();
+            if (thisValue < otherValue) {
+                return -1;
+            }
+            else if (thisValue > otherValue) {
+                return 1;
+            }
+            return 0;
+        };
+        /**
+         * Returns the value of the enum member.
+         */
+        Enum.prototype.valueOf = function () {
+            return this._value;
+        };
+        ////
+        //
+        //  Static Properties
+        //
+        ////
+        Enum._enums = {};
+        Enum = __decorate([
+            package_1.default
+        ], Enum);
+        return Enum;
+    }(ValueType_1.default));
+    exports.Enum = Enum;
     ////
     //
-    //  Static Properties
+    //  Export
     //
     ////
-    Enum._enums = {};
-    Enum = __decorate([
-        package_1.default
-    ], Enum);
-    return Enum;
-}(ValueType_1.default));
-exports.Enum = Enum;
-////
-//
-//  Export
-//
-////
-exports.default = Enum;
+    exports.default = Enum;
+});
 //# sourceMappingURL=Enum.js.map
