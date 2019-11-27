@@ -1,5 +1,5 @@
-System Core
-===========
+System Core Library
+===================
 
 The System Core Library contains the most important parts to develop with
 TypeScript in a .NET-like way. It contains functions for handling the runtime
@@ -10,11 +10,13 @@ session, reflection, and primitive types.
 Overview
 --------
 
-* [API Documentation](https://typescriptlibs.org/system-core)
+* [API Documentation](https://typescriptlibs.org/system-core/api)
 
 * [Bug Report](https://github.com/typescriptlibs/system-core/issues/new)
 
-* [MIT License](./LICENSE)
+* [Homepage](https://typescriptlibs.org/system-core)
+
+* [MIT License](LICENSE)
 
 * [Source Code](https://github.com/typescriptlibs/system-core)
 

@@ -5,6 +5,6 @@
     packages: [{
         name: "@tsl/system-core",
         main: "index",
-        location: "client"
+        location: "."
     }]
 } )

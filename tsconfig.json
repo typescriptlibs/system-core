@@ -6,7 +6,7 @@
         "rootDir": "sources",
         "sourceMap": true,
         "strict": true,
-        "module": "commonjs",
+        "module": "umd",
         "moduleResolution": "node",
         "target": "es5"
     },

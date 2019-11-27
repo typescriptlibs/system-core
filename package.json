@@ -9,16 +9,16 @@
     "name": "@tsl/system-core",
     "repository": "https://github.com/typescriptlibs/system-core.git",
     "types": "index.d.ts",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "devDependencies": {
         "@types/node": "^12.7.2",
-        "@typescript-eslint/eslint-plugin": "^2.0.0",
-        "@typescript-eslint/parser": "^2.0.0",
+        "@typescript-eslint/eslint-plugin": "^2.1.0",
+        "@typescript-eslint/parser": "^2.1.0",
         "bestjs": "^1.0.6",
         "husky": "^3.0.4",
         "requirejs": "^2.3.6",
-        "typedoc": "^0.15.0",
-        "typescript": "^3.6.2",
+        "typedoc": "^0.15.2",
+        "typescript": "^3.7.2",
         "typescriptlibs.typedoc.theme": "github:typescriptlibs/typescriptlibs.typedoc.theme#v0.6.2"
     },
     "engines": {
@@ -27,8 +27,15 @@
     "files": [
         "client",
         "System",
-        "CHANGELOG",
+        "CHANGELOG.md",
+        "CONTRIBUTORS.md",
+        "index.d.ts",
+        "index.js",
+        "index.js.map",
         "LICENSE",
+        "package.d.ts",
+        "package.js",
+        "package.js.map",
         "README.md"
     ],
     "husky": {
@@ -47,10 +54,10 @@
         "TypeScript"
     ],
     "scripts": {
-        "docs": "typedoc --out docs --tsconfig tsconfig-docs.json",
         "build": "npm run clean && npm run compile && npm run pack",
         "clean": "xargs rm -rf < .clean",
         "compile": "tsc --build tsconfig-client.json tsconfig-package.json",
+        "docs": "typedoc --out docs/api --tsconfig tsconfig-docs.json && open docs/api/index.html",
         "final": "npm publish --access=public",
         "lint": "eslint sources/**/*.ts",
         "next": "npm publish --access=public --tag next",

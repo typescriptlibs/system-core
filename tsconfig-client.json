@@ -2,6 +2,6 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "module": "amd",
-        "outDir": "client"
+        "outFile": "client/tsl-system-core.js"
     }
 }

@@ -1,4 +1,3 @@
-"use strict";
 /*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*\
 
     System Core Library
@@ -10,68 +9,79 @@
     https://typescriptlibs.org/LICENSE.txt
 
 \*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*i*/
-Object.defineProperty(exports, "__esModule", { value: true });
-////
-//
-//  Classes
-//
-////
-/**
- * Provides information and functions for the current runtime session.
- */
-var Environment;
-(function (Environment) {
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
+    }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     ////
     //
-    //  Types
-    //
-    ////
-    ////
-    //
-    //  Constants
+    //  Classes
     //
     ////
     /**
-     * Returns the global namespace.
+     * Provides information and functions for the current runtime session.
      */
-    Environment.globalNamespace = (typeof globalThis !== 'undefined' ? globalThis :
-        typeof self !== 'undefined' ? self :
-            global);
-    /**
-     * Returns true, if the runtime engine is of client type.
-     */
-    Environment.isClient = (typeof self !== 'undefined' && self instanceof Window);
-    /**
-     * Returns true, if the runtime engine is of worker type.
-     */
-    Environment.isWorker = (typeof self !== 'undefined' && self instanceof Worker);
-    /**
-     * Returns true, if the runtime engine is of server type.
-     */
-    Environment.isServer = (!Environment.isClient && !Environment.isWorker);
-    /**
-     * Returns the largest integer float number that can be used without
-     * precision problems in every runtime engine.
-     */
-    Environment.maxSafeInteger = 0x1FFFFFFFFFFFFF;
-    /**
-     * Returns the lowest integer float number that can be used without
-     * precision problems in every runtime engine.
-     */
-    Environment.minSafeInteger = -0x1FFFFFFFFFFFFF;
-    /**
-     * Returns the newline string for this environment.
-     */
-    Environment.newLine = '\n';
-    /**
-     * Returns an array of possible newline strings.
-     */
-    Environment.newLineAll = ['\r\n', '\n', '\r'];
-})(Environment = exports.Environment || (exports.Environment = {}));
-////
-//
-//  Export
-//
-////
-exports.default = Environment;
+    var Environment;
+    (function (Environment) {
+        ////
+        //
+        //  Types
+        //
+        ////
+        ////
+        //
+        //  Constants
+        //
+        ////
+        /**
+         * Returns the global namespace.
+         */
+        Environment.globalNamespace = (typeof globalThis !== 'undefined' ? globalThis :
+            typeof self !== 'undefined' ? self :
+                global);
+        /**
+         * Returns true, if the runtime engine is of client type.
+         */
+        Environment.isClient = (typeof self !== 'undefined' && self instanceof Window);
+        /**
+         * Returns true, if the runtime engine is of worker type.
+         */
+        Environment.isWorker = (typeof self !== 'undefined' && self instanceof Worker);
+        /**
+         * Returns true, if the runtime engine is of server type.
+         */
+        Environment.isServer = (!Environment.isClient && !Environment.isWorker);
+        /**
+         * Returns the largest integer float number that can be used without
+         * precision problems in every runtime engine.
+         */
+        Environment.maxSafeInteger = 0x1FFFFFFFFFFFFF;
+        /**
+         * Returns the lowest integer float number that can be used without
+         * precision problems in every runtime engine.
+         */
+        Environment.minSafeInteger = -0x1FFFFFFFFFFFFF;
+        /**
+         * Returns the newline string for this environment.
+         */
+        Environment.newLine = '\n';
+        /**
+         * Returns an array of possible newline strings.
+         */
+        Environment.newLineAll = ['\r\n', '\n', '\r'];
+    })(Environment = exports.Environment || (exports.Environment = {}));
+    ////
+    //
+    //  Export
+    //
+    ////
+    exports.default = Environment;
+});
 //# sourceMappingURL=Environment.js.map

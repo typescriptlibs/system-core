@@ -1,4 +1,3 @@
-"use strict";
 /*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*\
 
     System Core Library
@@ -17,65 +16,76 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             r[k] = a[j];
     return r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-////
-//
-//  Functions
-//
-////
-/**
- * Decorates the constructor of the following class with a namespace for further
- * reflection.
- *
- * @example
- * ```ts
- *   @Namespace('System').$('Reflection')
- *   export class MemberInfo
- *   {
- *     // => namespace: 'System.Runtime'
- *   }
- * ```
- *
- * @param namespaces
- * One or more namespaces of the class. All namespaces will be separated with a
- * point (`.`) character.
- */
-function Namespace() {
-    var namespaces = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        namespaces[_i] = arguments[_i];
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
     }
-    var decorator = function (target) {
-        if (Object.hasOwnProperty.call(target, '[[__namespace__]]') === true) {
-            throw new Error('Target has already a namespace!');
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    ////
+    //
+    //  Functions
+    //
+    ////
+    /**
+     * Decorates the constructor of the following class with a namespace for further
+     * reflection.
+     *
+     * @example
+     * ```ts
+     *   @Namespace('System').$('Reflection')
+     *   export class MemberInfo
+     *   {
+     *     // => namespace: 'System.Runtime'
+     *   }
+     * ```
+     *
+     * @param namespaces
+     * One or more namespaces of the class. All namespaces will be separated with a
+     * point (`.`) character.
+     */
+    function Namespace() {
+        var namespaces = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            namespaces[_i] = arguments[_i];
         }
-        Object.defineProperty(target, '[[__namespace__]]', {
-            configurable: false,
-            enumerable: false,
-            writable: false,
-            value: namespaces.join('.')
-        });
-        return target;
-    };
-    Object.defineProperty(decorator, '$', {
-        configurable: false,
-        enumerable: true,
-        writable: false,
-        value: function () {
-            var additionalNamespaces = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                additionalNamespaces[_i] = arguments[_i];
+        var decorator = function (target) {
+            if (Object.hasOwnProperty.call(target, '[[__namespace__]]') === true) {
+                throw new Error('Target has already a namespace!');
             }
-            return Namespace.apply(void 0, __spreadArrays(namespaces, additionalNamespaces));
-        }
-    });
-    return decorator;
-}
-exports.Namespace = Namespace;
-////
-//
-//  Export
-//
-////
-exports.default = Namespace;
+            Object.defineProperty(target, '[[__namespace__]]', {
+                configurable: false,
+                enumerable: false,
+                writable: false,
+                value: namespaces.join('.')
+            });
+            return target;
+        };
+        Object.defineProperty(decorator, '$', {
+            configurable: false,
+            enumerable: true,
+            writable: false,
+            value: function () {
+                var additionalNamespaces = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    additionalNamespaces[_i] = arguments[_i];
+                }
+                return Namespace.apply(void 0, __spreadArrays(namespaces, additionalNamespaces));
+            }
+        });
+        return decorator;
+    }
+    exports.Namespace = Namespace;
+    ////
+    //
+    //  Export
+    //
+    ////
+    exports.default = Namespace;
+});
 //# sourceMappingURL=Namespace.js.map

@@ -7,9 +7,9 @@
         "excludeProtected": true,
         "includeDeclarations": false,
         "mode": "file",
-        "name": "System Core Library",
+        "name": "System Core API",
         "plugin": "none",
-        "readme": "README.md",
-        "theme": "node_modules/typescriptlibs.typedoc.theme"
+        "readme": "none",
+        "theme": "../typescriptlibs.typedoc.theme"
     }
 }
