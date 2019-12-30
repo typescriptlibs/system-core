@@ -9,16 +9,16 @@
     "name": "@tsl/system-core",
     "repository": "https://github.com/typescriptlibs/system-core.git",
     "types": "index.d.ts",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "devDependencies": {
-        "@types/node": "^12.7.2",
-        "@typescript-eslint/eslint-plugin": "^2.1.0",
-        "@typescript-eslint/parser": "^2.1.0",
+        "@types/node": ">=10.15.2",
+        "@typescript-eslint/eslint-plugin": "^2.13.0",
+        "@typescript-eslint/parser": "^2.13.0",
         "bestjs": "^1.0.6",
-        "husky": "^3.0.4",
+        "husky": "^3.1.0",
         "requirejs": "^2.3.6",
-        "typedoc": "^0.15.2",
-        "typescript": "^3.7.2",
+        "typedoc": "^0.15.6",
+        "typescript": "^3.7.4",
         "typescriptlibs.typedoc.theme": "github:typescriptlibs/typescriptlibs.typedoc.theme#v0.6.2"
     },
     "engines": {
